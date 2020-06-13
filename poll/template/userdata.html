@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}VoteUserData{% endblock %}
+
+{% block main %}
+<div class="userdata">
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Enter info about you</h2>
+        <div class="form">
+            {{ form }}
+        </div>
+    <div class="acc-next">
+        <button class="accept" type="submit">Submit</button>
+    </div>
+    </form>
+</div>
+{% endblock %}

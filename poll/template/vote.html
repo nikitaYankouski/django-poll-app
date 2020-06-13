@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Vote{% endblock %}
+
+{% block main %}
+
+<h1>Choose a candidate</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="condidates"> 
+            {% for candidate in candidates %}
+            <div class="condidate">
+                <div class="avatar" style="width: 150px; height: 200px; background-color: rgba(0, 0, 0, .8);"></div>
+                <h2>{{ candidate.first_name }} {{ candidate.last_name }}</h2>
+                <p><b>Biography:</b>{{ candidate.biography }} <b>Activiti:</b>{{ candidate.activiti }} </p>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="poll" value="{{ candidate.auto_increment_id }}" required>
+                    <span class="design"></span>
+                </label>
+            </div>
+
+            {% endfor %}
+        </div>   
+    <div>
+        <button type="submit" class="voteCon">
+            Submit
+        </button>
+    </div>
+    </form>
+
+{% endblock %}

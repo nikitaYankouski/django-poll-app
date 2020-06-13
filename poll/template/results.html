@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Results{% endblock %}
+
+{% block main %}
+
+<h1>Poll Result</h1>
+<div class="resultVote">
+    <ul class="list-result">
+        {% for list in listCand %}
+        <li><span class="conName">{{ list.candidate_in_list.first_name }} {{ list.candidate_in_list.last_name }}</span> &mdash; <span class="result">{{ list.number_of_votes }}</span></li>
+        {% endfor %}
+    </ul>    
+</div>
+
+        <div id="piechart"></div>
+
+{% endblock %}
